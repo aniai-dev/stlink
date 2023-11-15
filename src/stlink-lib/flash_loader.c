@@ -773,7 +773,8 @@ int32_t stlink_flashloader_write(stlink_t *sl, flash_loader_t *fl, stm32_addr_t 
       if (stm32l1_write_half_pages(sl, fl, addr, base, len, pagesize)) {
         return (-1);
       } else {
-        off = (size_t)(len / pagesize) * pagesize;
+        // why size_t ?
+        off = (uint32_t)(len / pagesize) * pagesize;
       }
     }
 

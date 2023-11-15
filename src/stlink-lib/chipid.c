@@ -196,7 +196,8 @@ void process_chipfile(char *fname) {
 
 void init_chipids(char *dir_to_scan) {
   DIR *d;
-  uint32_t nl; // namelen
+  //uint32_t nl; // namelen
+  size_t nl; /// namelen , std size ..
   struct dirent *dir;
 
   if (!dir_to_scan) {
@@ -212,7 +213,7 @@ void init_chipids(char *dir_to_scan) {
 
       if (strcmp(dir->d_name + nl - 5, ".chip") == 0) {
         char buf[1024];
-        sprintf(buf, "%s/%s", dir_to_scan, dir->d_name);
+        snprintf(buf, 1024, "%s/%s", dir_to_scan, dir->d_name);
         process_chipfile(buf);
       }
     }

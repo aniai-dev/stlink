@@ -44,6 +44,9 @@
     #define MINIMAL_API_VERSION 0x01000106 // v1.0.22
 #elif defined (_WIN32)
     #define MINIMAL_API_VERSION 0x01000109 // v1.0.25
+#else
+    /// must be macOS ?
+    #define MINIMAL_API_VERSION 0x01000106 // v1.0.22
 #endif
 
 #if (LIBUSB_API_VERSION < MINIMAL_API_VERSION)

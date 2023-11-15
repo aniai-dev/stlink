@@ -53,18 +53,18 @@ static void stlink_print_info(stlink_t *sl) {
 
 static void stlink_probe(enum connect_type connect, int32_t freq) {
     stlink_t **stdevs;
-    uint32_t size;
+    size_t size;
 
     size = stlink_probe_usb(&stdevs, connect, freq);
 
-    printf("Found %u stlink programmers\n", size);
+    printf("Found %zu stlink programmers\n", size);
 
-    for (uint32_t n = 0; n < size; n++) {
-        if (size > 1) printf("%u.\n", n+1);
+    for (size_t n = 0; n < size; n++) {
+        if (size > 1) printf("%zu.\n", n+1);
         stlink_print_info(stdevs[n]);
     }
 
-    stlink_probe_usb_free(&stdevs, size);
+    stlink_probe_usb_free(&stdevs, (uint32_t)size);
 }
 
 static int32_t print_data(int32_t ac, char **av) {

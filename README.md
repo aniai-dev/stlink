@@ -78,12 +78,13 @@ We recommend to install `stlink-tools` from the package repository of the used d
 - Alpine Linux: [(Link)](https://pkgs.alpinelinux.org/packages?name=stlink)
 - Fedora: [(Link)](https://src.fedoraproject.org/rpms/stlink)
 - FreeBSD: Users can install from [freshports](https://www.freshports.org/devel/stlink)
+- macOS : Link will be updated soon.
 
 **macOS**:
 
-**Support for macOS will be dropped with v1.8.0.**
-
-Please use v1.7.0 instead, **but note that this version is no longer maintained and supported!**
+- This forked repository supports modern macOS clang as well.
+- Will be updated with maintenance updates from [stlink](https://github.com/stlink-org/stlink) changes.
+- macOS will be required latest version of libusb, and make sure it installed on your system wite `sudo make install` in libusb directory.
 
 ## Installation from source (advanced users)
 

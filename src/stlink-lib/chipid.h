@@ -30,6 +30,7 @@ struct stlink_chipid_params *stlink_chipid_get_params(uint32_t chipid);
 
 void dump_a_chip(struct stlink_chipid_params *dev);
 void process_chipfile(char *fname);
+void process_chipbuffer(char* buff);
 void init_chipids(char *dir_to_scan);
 
 #endif // CHIPID_H

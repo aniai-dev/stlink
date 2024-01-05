@@ -20,14 +20,14 @@ if (GIT_FOUND AND EXISTS "${PROJECT_SOURCE_DIR}/.git")
         )
     if (GIT_DESCRIBE_RESULT EQUAL 0)
 
-        # If the sources have been changed locally, add -dirty to the version.
+        # If the sources have been changed locally, add -mod to the version.
         execute_process (
             COMMAND             "${GIT_EXECUTABLE}" diff --quiet
             WORKING_DIRECTORY   "${PROJECT_SOURCE_DIR}"
             RESULT_VARIABLE     res
             )
         if (res EQUAL 1)
-            set(PROJECT_VERSION "${PROJECT_VERSION}-dirty")
+            set(PROJECT_VERSION "${PROJECT_VERSION}-mod")
         endif()
 
         # Strip a leading v off of the version as proceeding code expects just the version numbering.

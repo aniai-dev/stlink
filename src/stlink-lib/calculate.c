@@ -49,10 +49,8 @@ uint32_t calculate_F7_sectornum(uint32_t flashaddr) {
 }
 
 uint32_t calculate_H7_sectornum(stlink_t *sl, uint32_t flashaddr, uint32_t bank) {
-  flashaddr &=
-      ~((bank == BANK_1)
-            ? STM32_FLASH_BASE
-            : STM32_H7_FLASH_BANK2_BASE); // sector holding the flash address
+  // sector holding the flash address
+  flashaddr &= ~((bank == BANK_1) ? STM32_FLASH_BASE : STM32_H7_FLASH_BANK2_BASE);
   return (flashaddr / sl->flash_pgsz);
 }
 
@@ -66,7 +64,7 @@ uint32_t calculate_L4_page(stlink_t *sl, uint32_t flashaddr) {
   if (sl->chip_id == STM32_CHIPID_L4 ||
       sl->chip_id == STM32_CHIPID_L496x_L4A6x ||
       sl->chip_id == STM32_CHIPID_L4Rx) {
-    // this chip use dual banked flash
+    // these chips use dual bank flash
     if (flashopt & (uint32_t)(1lu << FLASH_L4_OPTR_DUALBANK)) {
       uint32_t banksize = sl->flash_size / 2;
 

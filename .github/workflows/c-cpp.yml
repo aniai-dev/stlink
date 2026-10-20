@@ -9,9 +9,9 @@ on:
 jobs:
   # Linux
 
-  job_linux_20_04_64_gcc:
-    name: ubuntu-20.04 gcc
-    runs-on: ubuntu-20.04
+  job_linux_22_04_64_gcc10:
+    name: ubuntu-22.04 gcc-10
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v2
       - name: Install dependencies
@@ -29,9 +29,9 @@ jobs:
       - name: sudo make uninstall
         run: sudo make uninstall && sudo make clean
 
-  job_linux_20_04_32_gcc:
-    name: ubuntu-20.04 gcc 32-bit
-    runs-on: ubuntu-20.04
+  job_linux_22_04_32_gcc10:
+    name: ubuntu-22.04 gcc-10 32-bit
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v2
       - name: Install dependencies
@@ -54,9 +54,9 @@ jobs:
       - name: sudo make uninstall
         run: sudo make uninstall && sudo make clean
 
-  job_linux_20_04_64_clang:
-    name: ubuntu-20.04 clang
-    runs-on: ubuntu-20.04
+  job_linux_22_04_64_clang12:
+    name: ubuntu-22.04 clang-12
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v2
       - name: Install dependencies
@@ -74,9 +74,9 @@ jobs:
       - name: sudo make uninstall
         run: sudo make uninstall && sudo make clean
 
-  job_linux_20_04_32_clang:
-    name: ubuntu-20.04 clang 32-bit
-    runs-on: ubuntu-20.04
+  job_linux_22_04_32_clang12:
+    name: ubuntu-22.04 clang-12 32-bit
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v2
       - name: Install dependencies
